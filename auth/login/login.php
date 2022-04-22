@@ -24,7 +24,7 @@
                     $_SESSION["email"] = $row[3];
                     $_SESSION['uname'] = $row[2];
                     $_SESSION['s_id'] = $row[0];
-					header('Location: ../../student/dashboard.php');
+					header('Location: ../../dashboard/loader.html');
                     }
 					else
 						echo "incorrect password";
@@ -49,7 +49,7 @@
                     {
                     $_SESSION['g_id'] = $row[0];
                     $_SESSION['g_name'] = $row[1];
-					header('Location: ../../guide/dashboard.php');}
+					header('Location: ../../dashboard/loader.html');}
 					else
 						echo "incorrect password";
 			}	
