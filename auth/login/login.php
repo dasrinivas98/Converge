@@ -24,13 +24,13 @@
                     $_SESSION["email"] = $row[3];
                     $_SESSION['uname'] = $row[2];
                     $_SESSION['s_id'] = $row[0];
-					header('Location: ../../dashboard/loader.html');
+					header('Location: ../../student/dashboard.php');
                     }
 					else
-						echo "incorrect password";
+                    header('Location: invalidCredentials/error.html');
 			}	
 			else
-				echo "user not found";
+            header('Location: userNotFound/error.html');
         }
     } 
     if(isset($_POST["g_login"]))
@@ -49,12 +49,12 @@
                     {
                     $_SESSION['g_id'] = $row[0];
                     $_SESSION['g_name'] = $row[1];
-					header('Location: ../../dashboard/loader.html');}
+					header('Location: ../../guide/dashboard.php');}
 					else
-						echo "incorrect password";
+                    header('Location: invalidCredentials/error.html');
 			}	
 			else
-				echo "user not found";
+            header('Location: userNotFound/error.html');
         }
     }   
 ?>
