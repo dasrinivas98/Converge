@@ -8,7 +8,13 @@
      session_start();
     if(isset($_POST["s_login"]))
 	{
-       
+        $captcha;
+        if(isset($_POST['g-recaptcha-response'])){
+            $captcha=$_POST['g-recaptcha-response'];
+          }
+          if(!$captcha){
+            echo "<script>window.alert('Please complete the captcha');window.location.href = 'login.html';</script>";
+          }else{
 		$email = $_POST["s_email"];
         $pwd = $_POST["s_pass"];
         $sql = "SELECT * FROM students where s_email = '$email'";
@@ -32,9 +38,17 @@
 			else
             header('Location: userNotFound/error.html');
         }
+    }
     } 
     if(isset($_POST["g_login"]))
 	{
+        $captcha;
+        if(isset($_POST['g-recaptcha-response'])){
+            $captcha=$_POST['g-recaptcha-response'];
+          }
+          if(!$captcha){
+            echo "<script>window.alert('Please complete the captcha');window.location.href = 'login.html';</script>";
+          }else{
 		$email = $_POST["g_email"];
         $pwd = $_POST["g_pass"];
         $sql = "SELECT * FROM guides where g_email = '$email'";
@@ -56,5 +70,6 @@
 			else
             header('Location: userNotFound/error.html');
         }
+    }
     }   
 ?>

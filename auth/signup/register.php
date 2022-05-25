@@ -1,7 +1,15 @@
 <?php
     include('../../assests/dbconnect.php');
     if(isset($_POST["s_signup"]))
-    {   $usn = $_POST["susn"];
+    {   
+      $captcha;
+      if(isset($_POST['g-recaptcha-response'])){
+          $captcha=$_POST['g-recaptcha-response'];
+        }
+        if(!$captcha){
+          echo "<script>window.alert('Please complete the captcha');window.location.href = 'register.html';</script>";
+        }else{
+        $usn = $_POST["susn"];
         $email = $_POST["semail"];
         $name = $_POST["sname"];
         $pass = $_POST["spass"];
@@ -333,10 +341,18 @@
             </body>
             </html>
             ";
-        }    
+        }
+      }    
     }
     if(isset($_POST["g_signup"]))
     {   
+      $captcha;
+        if(isset($_POST['g-recaptcha-response'])){
+            $captcha=$_POST['g-recaptcha-response'];
+          }
+          if(!$captcha){
+            echo "<script>window.alert('Please complete the captcha');window.location.href = 'register.html';</script>";
+          }else{
         $email = $_POST["gemail"];
         $name = $_POST["gname"];
         $pass = $_POST["gpass"];
@@ -668,6 +684,7 @@
             </html>
             ";
             
-        }    
+        }
+      }    
     }
 ?>

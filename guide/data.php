@@ -5,9 +5,9 @@ if(!isset($_SESSION["g_id"])){
     header('Location: ../auth/login/notAuthorized/error.html');
   }
 header('Content-Type: application/json');
-$gid = $_SESSION['g_id'];
+$gid = $_SESSION["g_id"];
 // $sqlQuery = "SELECT count(*) as 'Active' FROM projects where g_id=$gid and finalStatus = 0 ,(SELECT count(*) as 'Completed' FROM projects where g_id=$gid and finalStatus =1)";
-$sqlQuery = "select sum(case when finalStatus = 0 then 1 else 0 end) As Active,sum(case when finalStatus = 1 then 1 else 0 end) As Completed from projects WHERE g_id=3";
+$sqlQuery = "select sum(case when finalStatus = 0 then 1 else 0 end) As Active,sum(case when finalStatus = 1 then 1 else 0 end) As Completed from projects WHERE g_id=$gid";
 $result = mysqli_query($link,$sqlQuery);
 
 $data = array();

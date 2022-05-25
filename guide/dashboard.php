@@ -579,7 +579,7 @@ $(document).ready(function(){
   <script src="../js/dataTables.bootstrap4.js"></script>
   <!-- End custom js for this page-->
   <script src="../js/jquery.cookie.js" type="text/javascript"></script>
-  <!-- <script src="../chart.js"></script> -->
+  <!-- <script src="../js/chart.js"></script> -->
 </body>
 
 </html>
